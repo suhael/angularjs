@@ -2,6 +2,7 @@
 require.config({
    paths: {
        angular: 'vendor/angular.min',
+       angularResource: 'vendor/angular-resource.min',
        jquery: 'vendor/jquery',
        domReady: 'vendor/domReady'
    },
@@ -9,6 +10,10 @@ require.config({
        angular: {
            deps: [ 'jquery'],
            exports: 'angular'
+       },
+       angularResource: {
+           deps: ['angular'],
+           exports: 'ngResource'
        }
    }
 });

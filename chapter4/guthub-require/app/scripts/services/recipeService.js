@@ -5,7 +5,7 @@ define(['services/services'],
           function($resource) {
             return $resource('/recipes/:id', {id: '@id'});
           }]);
-
+      
       services.factory('MultiRecipeLoader', ['Recipe', '$q',
          function(Recipe, $q) {
              return function() {
