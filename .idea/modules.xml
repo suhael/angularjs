@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/angular-seed/angular-seed.iml" filepath="$PROJECT_DIR$/angular-seed/angular-seed.iml" />
       <module fileurl="file://$PROJECT_DIR$/angularjs.iml" filepath="$PROJECT_DIR$/angularjs.iml" />
     </modules>
   </component>
