@@ -1,6 +1,4 @@
-//jshint strict: false
 exports.config = {
-
   allScriptsTimeout: 11000,
 
   specs: [
@@ -18,5 +16,4 @@ exports.config = {
   jasmineNodeOpts: {
     defaultTimeoutInterval: 30000
   }
-
 };
