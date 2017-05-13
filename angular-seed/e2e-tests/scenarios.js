@@ -1,12 +1,13 @@
+/* global describe, it, expect, beforeEach, afterEach, module, inject, browser, element, by */
 'use strict';
 
 /* https://github.com/angular/protractor/blob/master/docs/toc.md */
 
 describe('my app', function() {
 
+  browser.get('index.html');
 
   it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    browser.get('index.html');
     expect(browser.getLocationAbsUrl()).toMatch("/view1");
   });
 
@@ -14,7 +15,7 @@ describe('my app', function() {
   describe('view1', function() {
 
     beforeEach(function() {
-      browser.get('index.html#!/view1');
+      browser.get('index.html#/view1');
     });
 
 
@@ -29,7 +30,7 @@ describe('my app', function() {
   describe('view2', function() {
 
     beforeEach(function() {
-      browser.get('index.html#!/view2');
+      browser.get('index.html#/view2');
     });
 
 
@@ -38,5 +39,9 @@ describe('my app', function() {
         toMatch(/partial for view 2/);
     });
 
+    it('should fire View2Ctrl when user navigates to /view2', function() {
+      expect(element.all(by.css('[ng-view] p:nth-child(2)')).first().getText()).
+        toMatch(/hey this is ctrl2/);
+    });
   });
 });
