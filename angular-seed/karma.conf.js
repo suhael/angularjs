@@ -1,34 +1,40 @@
-//jshint strict: false
-module.exports = function(config) {
-  config.set({
+/* global module */
+"use strict";
 
-    basePath: './app',
+module.exports = function(config){
+    config.set({
 
-    files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'components/**/*.js',
-      'view*/**/*.js'
-    ],
+                   basePath : './',
 
-    autoWatch: true,
+                   files : [
+                       {pattern: 'app/bower_components/angular/angular.js', included: false},
+                       {pattern: 'app/bower_components/angular-route/angular-route.js', included: false},
+                       {pattern: 'app/bower_components/angular-mocks/angular-mocks.js', included: false},
+                       {pattern: 'app/components/**/*.js', included: false},
+                       {pattern: 'app/view*/**/*.js', included: false},
+                       {pattern: 'app/app.js', included: false},
+                       // needs to be last http://karma-runner.github.io/0.12/plus/requirejs.html
+                       'app/require-config.js'
+                   ],
 
-    frameworks: ['jasmine'],
+                   autoWatch : true,
 
-    browsers: ['Chrome'],
+                   frameworks: ['jasmine', 'requirejs'],
 
-    plugins: [
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-jasmine',
-      'karma-junit-reporter'
-    ],
+                   browsers : ['Chrome'],
 
-    junitReporter: {
-      outputFile: 'test_out/unit.xml',
-      suite: 'unit'
-    }
+                   plugins : [
+                       'karma-chrome-launcher',
+                       'karma-firefox-launcher',
+                       'karma-jasmine',
+                       'karma-requirejs',
+                       'karma-junit-reporter'
+                   ],
 
-  });
+                   junitReporter : {
+                       outputFile: 'test_out/unit.xml',
+                       suite: 'unit'
+                   }
+
+               });
 };
